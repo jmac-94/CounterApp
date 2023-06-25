@@ -33,7 +33,7 @@ jobs:
         run: |
           sudo apt-get install libssl-dev
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          sudo ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-54-210-103-182.compute-1.amazonaws.com
+          sudo ssh -i ubuntu@54.210.103.182
           
           '
             #Now we have got the access of EC2 and we will start the deploy .
