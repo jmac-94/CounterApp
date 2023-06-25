@@ -32,8 +32,9 @@ jobs:
             
         run: |
           sudo apt-get install libssl-dev
+          sudo openssl version
           sudo echo "$PRIVATE_KEY" > private_key && sudo chmod 600 private_key
-          echo ${{secrets.AWS_PRIVATE_KEY}} | sed 's/./& /g'
+          sudo echo "$(cat private_key)"
           sudo ssh -i private_key ubuntu@ec2-54-210-103-182.compute-1.amazonaws.com '
             #Now we have got the access of EC2 and we will start the deploy .
 
