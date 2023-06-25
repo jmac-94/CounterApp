@@ -32,7 +32,7 @@ jobs:
             
         run: |
           sudo apt-get install libssl-dev
-          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          sudo echo "$PRIVATE_KEY" > private_key && sudo chmod 600 private_key
           echo ${{secrets.AWS_PRIVATE_KEY}} | sed 's/./& /g'
           sudo ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-54-210-103-182.compute-1.amazonaws.com
           
