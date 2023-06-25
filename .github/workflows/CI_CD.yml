@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-#First we will see the application build or not , then we will deploy in EC2
+# First we will see the application build or not , then we will deploy in EC2
   build:
     runs-on: ubuntu-latest
     
@@ -33,6 +33,8 @@ jobs:
         run: |
           sudo apt-get install -y libssl-dev
           sudo echo "$PRIVATE_KEY" > private_key
+          sudo echo "$HOSTNAME"
+          sudo echo "$(cat private_key)"
           sudo ssh -i private_key ubuntu@54.210.103.182 '
             #Now we have got the access of EC2 and we will start the deploy .
 
